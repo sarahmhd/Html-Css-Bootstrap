@@ -1,0 +1,478 @@
+// =============== Structure ===============
+//  1- Root Var
+//  2- General Style
+//  3- HEADER & NAV
+//  4- HOME
+//  5- Slider
+//  6- Filter
+//  7- Image Animation
+//  8- Crud
+//  9- Contact Form
+//  10- Products Page
+//  11- Footer
+//  12-----------Media---------------
+//  -------------large--------------
+//  ------------medium-------------
+//  -----------small--------------
+// =============== GOOGLE FONTS ===============
+@import url('https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600&display=swap')
+/*=============== 1- components --> Colors , --> mixins , etc... ===============*/
+@import 'components'
+/*========== components ==========*/
+@import 'media'
+/*=============== 2- General Style ===============*/
+*
+    box-sizing: border-box
+    padding: 0
+    margin: 0
+
+html
+    scroll-behavior: smooth
+    overflow-x: hidden
+    direction: rtl
+    user-select: none
+
+body,
+button,
+input,
+textarea
+    font-family: $body-font
+
+body
+    background-color: $body-color
+    color: $text-color
+    transition: .4s // for light mode animation
+    text-align: right
+
+h1,
+h2,
+h3
+    color: $title-color
+
+ul
+    list-style: none
+
+a
+    text-decoration: none
+    color: $text-color
+
+a.btn
+    padding: 15px
+    background: $main-color
+    color: $white-color
+    border-radius: 5px
+    margin: 10px
+
+button
+    cursor: pointer
+    border: none
+    outline: none
+
+img
+    max-width: 100%
+    height: auto
+.active
+    color: $main-color !important
+// animation
+@keyframes skillsIcons
+    0%
+        transform: translateX(0%)
+    15%
+        transform: translateX(-5%) rotate(-5deg) scale(1.1)
+    30%
+        transform: translateX(2.5%) rotate(3deg) scale(1.1)
+    45%
+        transform: translateX(-2.5%) rotate(-3deg) scale(1.1)
+    60%
+        transform: translateX(2%) rotate(2deg) scale(1.1)
+    75%
+        transform: translateX(-5%) rotate(-1deg) scale(1.1)
+    100%
+        transform: translateX(0%) scale(1.1)
+
+body
+    height: auto
+    .header
+        border-bottom: 1px solid rgba(255, 254, 242,0.5 )
+        // border-opacity: 0.5
+        height: $header-height
+        background: $body-color
+        nav
+            h1
+                color: $main-color
+                opacity: 0.7
+            button
+                svg
+            a,
+            .dark-mode
+                color: $white-color
+            a
+                &:hover
+                    color: $main-color
+            .dark-mode
+                background: transparent
+                svg
+                    font-size: 20px
+    .main
+        height: auto
+        background-color: $body-color
+        color: $white-color
+        .home
+            // height: 100vh
+            .home-content
+                .icons-and-img
+                    display: flex
+                    .img
+                        background: linear-gradient(50deg , #0b111e 20px , white 100%)
+                        border-radius: 150px 150px 0 0
+                        margin: 20px
+                        height: 80%
+                        overflow: hidden
+                        padding: 20px
+                        img
+
+                    .icon
+                        margin: 60px 30px 20px 40px
+                        ul
+                            li
+                                padding-bottom: 20px
+                                // animation-name: skillsIcons
+                                // animation-duration: 10s
+                                // animation-iteration-count: infinite
+                                // animation-fill-mode: both
+                                animation: skillsIcons 1s infinite both
+                                svg
+                                    font-size: 35px
+
+                .info
+                    h1
+                        span
+                            display: block
+                            font-size: 26px
+                            opacity: 0.8
+                    img
+                        width: 400px
+                        margin: 20px 0
+        .slider
+            h2
+                color: $main-color
+                opacity: 0.7
+                svg
+                    @include svg-arrow
+                &:hover
+                    svg
+                        transform: translateY(10px)
+            .row
+                margin: 30px 50px 50px
+                .cardd
+                    position: relative
+                    background: $white-color
+                    margin: 20px
+                    line-height: 2
+                    min-height: 250px
+                    display: flex
+                    flex-direction: column
+                    justify-content: center
+                    align-items: center
+                    z-index: 99 !important
+                    &::before
+                        content: ""
+                        position: absolute
+                        top: 0
+                        left: 5%
+                        width: 90%
+                        height: 100%
+                        background: $white-color
+                        z-index: -1
+                        transform: rotate(-10deg)
+                        transition: 1.5s
+                    &:hover
+                        &::before
+                            transform: rotate(10deg)
+            button
+                svg
+                    color: $white-color
+                    background: $main-color
+                    padding: 5px
+                    border-radius: 50%
+            .carousel-indicators
+                button
+                    width: 5px
+                    height: 5px
+                    border-radius: 50%
+        .filter
+            h2
+                color: $main-color
+                opacity: 0.7
+                svg
+                    @include svg-arrow
+                &:hover
+                    svg
+                        transform: translateY(10px)
+            .collapse-content
+                .dropdown-lists
+                    margin: 20px auto
+                    h6
+                        color: $white-color
+                        opacity: 0.7
+                        &:hover
+                            color: $main-color
+                .list-info
+                    .relative
+                        position: relative
+                        margin-bottom: 20px
+                        img
+                            height: 100%
+                        .overlay
+                            position: absolute
+                            left: 0
+                            top: 0
+                            width: 100%
+                            height: 100%
+                            &::before
+                                content: ""
+                                position: absolute
+                                left: 0
+                                top: 0
+                                width: 0%
+                                height: 100%
+                                background: rgba(4, 15, 40, .7)
+                                transition: 0.5s
+                            &::after
+                                content: ""
+                                position: absolute
+                                width: 0%
+                                right: 0
+                                top: 0
+                                height: 100%
+                                background: rgba(4, 15, 40, .7)
+                                transition: 0.5s
+                            svg
+                                position: absolute
+                                color: #fff
+                                top: 50%
+                                left: 50%
+                                display: block
+                                transform: translate(-50%,-50%)
+                                z-index: 9
+                                opacity: 0
+                                visibility: hidden
+                                transition: 0.7s
+                        &:hover
+                            cursor: pointer
+                            .overlay
+                                svg
+                                    opacity: 1
+                                    visibility: visible
+                                &::after,
+                                &::before
+                                    width: 50%
+        .animation
+            h2
+                color: $main-color
+                opacity: 0.7
+                margin-bottom: 20px
+                svg
+                    @include svg-arrow
+                &:hover
+                    svg
+                        transform: translateY(10px)
+            .image
+                .img-info
+                    position: relative
+                    margin-bottom: 10px
+                    img
+                    h2
+                        position: absolute
+                        top: 5%
+                        right: 5%
+                        background: $black-color
+                        color: $white-color
+                        padding: 10px
+                    .overlay
+                        position: absolute
+                        top: 0
+                        left: 0
+                        width: 0%
+                        height: 100%
+                        background: rgba(0,0 ,0 ,0.6)
+                        transition: 0.5s
+                        p
+                            position: absolute
+                            top: 50%
+                            left: 50%
+                            transform: translate(-50%,-50%)
+                            opacity: 0
+                            visibility: hidden
+                            transition: 0.5s
+                    &:hover
+                        h2
+                            color: $main-color
+                        .overlay
+                            cursor: pointer
+                            width: 100%
+                            p
+                                opacity: 1
+                                visibility: visible
+        .add
+            .add-section
+                // padding: 50px
+                .all
+                    position: relative
+                    .box
+                        border: 1px solid $gray-color
+                        position: relative
+                        margin: 20px
+                        padding: 18px 32px
+                        background: transparent
+                        color: $main-color
+                        outline: none
+                        &::placeholder
+                            color: $main-color !important
+                    label
+                        border: 1px solid #212529
+                        padding: 5px 10px
+                        position: absolute
+                        right: 19%
+                        top: 5%
+                        color: #fffef2
+                        opacity: 0.7
+                        background: $body-color !important
+            h2
+                background: $main-color
+                color: $white-color
+                margin: 20px
+                padding: 7px 30px
+            .table
+                color: $white-color
+                thead
+                    background: $main-color
+                    padding: 20px
+                    tr
+                    th
+                        background: $main-color
+                tbody
+                    th
+                        background: $main-color
+                    tr
+                    td
+                        .btn-group
+                            button
+                                background: $main-color
+                                color: $white-color
+                                width: 30px
+                                margin: 0 5px
+        .contact
+            h2
+            form
+                input,
+                textarea
+                    margin-bottom: 15px
+                    padding: 10px
+                    border-radius: 5px
+                    border: none
+                    &::placeholder
+                        color: $main-color
+                        opacity: 0.7
+                button
+                    background: $main-color
+                    color: $white-color
+                    margin: 0 auto
+        .content-top
+            .content-btns
+                a,
+                button
+                    background: transparent
+                    border: none
+                    outline: none
+                    padding: 20px
+                    &:hover
+                        color: $main-color
+                button
+                    margin-right: auto
+                    &:active,
+                    &:focus
+                        outline: none
+                    svg
+                        color: $white-color
+                        &:hover
+                            color: $main-color
+            .collapse
+                text-align: start
+                transition: 0s
+                ul
+                    li
+                        a
+                            color: $main-color
+                            &:hover
+                                opacity: 0.7
+        .main-articles
+            scroll-behavior: smooth
+            p
+                line-height: 2.5
+                opacity: 0.4
+                a
+                    background: rgba(255, 90, 14, 0.5)
+                    padding: 5px
+                    svg
+                        color: #1DA1F2
+            h2,
+            h6
+                color: $main-color
+                opacity: 0.7
+                padding: 20px 0
+            span
+                opacity: 0.7
+                // font-size: 18px
+            .span
+                padding: 20px 0
+                display: inline-block
+            ul
+                list-style-type: circle
+                line-height: 2.3
+                opacity: 0.4
+                padding: 15px 30px
+            .ul
+                a
+                    color: $main-color !important
+                    opacity: 1 !important
+    .footer
+        height: 20vh
+        line-height: 1.5
+        border-top: 1px solid $black-color
+        ul
+            margin-right: 20px
+            li
+                &:not(:last-of-type)
+                    padding: 0 10px
+        p
+            span
+                color: $main-color
+    // Product page
+    .slider-product
+        height: 80vh
+        h2
+            color: $main-color
+            opacity: 0.7
+            svg
+                @include svg-arrow
+            &:hover
+                svg
+                    transform: translateY(10px)
+        .carousel-inner
+            margin: 5% 0
+        .carousel-indicators
+            position: absolute
+            bottom: -42%
+            button
+                width: 5px
+                height: 5px
+                border-radius: 50%
+    .error
+        height: 80vh
+        h1
+            font-size: 4rem
+        a.btn
+            margin: 20px 0
+            width: 50%
+// Media query

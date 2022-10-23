@@ -1,0 +1,28 @@
+//////// Colors ///////
+
+$header-height: 3.5rem
+$main-color: #FF5A0E
+$sec-color: #FFB096
+$white-color: #fffef2
+$black-color: #3D3B3A
+$gray-color: #212529
+
+//   // Color mode HSL(hue, saturation, lightness)
+$first-hue: 250
+$second-hue: 219
+$title-color: hsl($second-hue, 15%, 95%)
+$text-color: hsl($second-hue, 8%, 75%)
+$body-color: hsl($second-hue, 48%, 8%)
+// //   ========== Font and typography ==========
+// //   .5rem = 8px | 1rem = 16px ...
+$body-font: 'Readex Pro', sans-serif
+$biggest-font-size: 1.75rem
+$h2-font-size: 1.25rem
+
+@media screen and (min-width: 968px)
+  $h2-font-size: 1.5rem
+
+@mixin svg-arrow()
+  color: $text-color
+  font-size: 20px
+  transition: 0.5s
